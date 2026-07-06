@@ -1,0 +1,4 @@
+baseURL = 'http://localhost:1313/'
+locale = 'en-us'
+title = 'JV Blog Dev'
+theme = 'PaperMod' # <--- Asegúrate de que esta línea exista y coincida con la carpeta en themes/
