@@ -6,8 +6,34 @@
     <description>Recent content on JV Blog Dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Jul 2026 11:13:47 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2026 11:47:41 -0600</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RichLabel.Maui: Render Rich Text Dynamically from JSON 🚀</title>
+      <link>http://localhost:1313/posts/richlabel-maui/</link>
+      <pubDate>Mon, 06 Jul 2026 11:47:41 -0600</pubDate>
+      <guid>http://localhost:1313/posts/richlabel-maui/</guid>
+      <description>&lt;h1 id=&#34;richlabelmaui-&#34;&gt;RichLabel.Maui 🚀&lt;/h1&gt;
+&lt;p&gt;A powerful, flexible, and lightweight .NET MAUI control for rendering rich text from a simple JSON structure. It provides seamless, extensible support for interactive tap gestures, making it easy to handle links, phone numbers, emails, or trigger custom actions within your app.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.nuget.org/packages/RichLabel.Maui&#34;&gt;&lt;img alt=&#34;NuGet version&#34; loading=&#34;lazy&#34; src=&#34;https://img.shields.io/nuget/v/RichLabel.Maui.svg&#34;&gt;&lt;/a&gt;
+&lt;a href=&#34;https://opensource.org/licenses/MIT&#34;&gt;&lt;img alt=&#34;License: MIT&#34; loading=&#34;lazy&#34; src=&#34;https://img.shields.io/badge/License-MIT-yellow.svg&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;preview&#34;&gt;Preview&lt;/h2&gt;
+&lt;p&gt;&lt;img alt=&#34;RichLabel.Maui Preview&#34; loading=&#34;lazy&#34; src=&#34;https://raw.githubusercontent.com/jvicius/RichLabel.Maui/master/assets/preview.jpeg&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;features-&#34;&gt;Features ✨&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;JSON-Driven Text&lt;/strong&gt; — Render complex, formatted labels using a clean, well-structured JSON schema.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rich Styling&lt;/strong&gt; — Native support for custom font families, sizes, bold, italic, underline, text colors, and background colors per text segment.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Advanced Layouts&lt;/strong&gt; — Render standard paragraphs, custom bulleted lists, and auto-numbered sequences.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Extensible Tap Gestures&lt;/strong&gt; — Pass custom action types and data payloads through JSON to trigger native actions (phone calls, custom alerts, view navigation, etc.).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cross-Platform Alignment&lt;/strong&gt; — Supports Start, Center, End, and Justified text alignment.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Safe Formatting &amp;amp; Scaling&lt;/strong&gt; — Built-in validation prevents crashes from invalid formatting input, with automatic font scaling for tablets.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;installation-&#34;&gt;Installation 📦&lt;/h2&gt;
+&lt;p&gt;Add the NuGet package to your .NET MAUI project:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Welcome to my dev space! 🚀</title>
       <link>http://localhost:1313/posts/welcome/</link>

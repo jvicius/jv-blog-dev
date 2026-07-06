@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on JV Blog Dev</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on JV Blog Dev</description>
+    <title>NuGet on JV Blog Dev</title>
+    <link>http://localhost:1313/tags/nuget/</link>
+    <description>Recent content in NuGet on JV Blog Dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 06 Jul 2026 11:47:41 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/nuget/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RichLabel.Maui: Render Rich Text Dynamically from JSON 🚀</title>
       <link>http://localhost:1313/posts/richlabel-maui/</link>
@@ -33,23 +33,6 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;installation-&#34;&gt;Installation 📦&lt;/h2&gt;
 &lt;p&gt;Add the NuGet package to your .NET MAUI project:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Welcome to my dev space! 🚀</title>
-      <link>http://localhost:1313/posts/welcome/</link>
-      <pubDate>Mon, 06 Jul 2026 11:13:47 -0600</pubDate>
-      <guid>http://localhost:1313/posts/welcome/</guid>
-      <description>&lt;p&gt;Hey there! Thanks for stopping by.&lt;/p&gt;
-&lt;p&gt;I decided to spin up this blog as a dedicated space to document my journey, share engineering insights, and open-source some of the custom components and tools I build along the way.&lt;/p&gt;
-&lt;p&gt;As a software developer deeply invested in the &lt;strong&gt;.NET ecosystem&lt;/strong&gt;, my main focus here will be around &lt;strong&gt;.NET MAUI&lt;/strong&gt;, &lt;strong&gt;C#&lt;/strong&gt;, and building clean, efficient UI/UX controls that solve real-world problems.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;what-to-expect-&#34;&gt;What to expect? 🤔&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Component Breakdowns&lt;/strong&gt;: Detailed guides on how I build, package, and deploy NuGet packages.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Architecture &amp;amp; Patterns&lt;/strong&gt;: Real production workflows, handling dynamic data (like JSON-driven layouts), and performance tuning.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Home Lab &amp;amp; Automation&lt;/strong&gt;: Occasionally, I might share some of my backend experiments, Docker setups, or fun automation work.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Stay tuned for the next posts. Feel free to connect, break things, and happy coding! 💻✨&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>RichLabel.Maui: Render Rich Text Dynamically from JSON 🚀 | JV Blog Dev</title>
+<meta name="keywords" content=".NET MAUI, C#, NuGet, Open Source">
+<meta name="description" content="RichLabel.Maui 🚀
+A powerful, flexible, and lightweight .NET MAUI control for rendering rich text from a simple JSON structure. It provides seamless, extensible support for interactive tap gestures, making it easy to handle links, phone numbers, emails, or trigger custom actions within your app.
+
+
+
+Preview
+
+
+Features ✨
+
+JSON-Driven Text — Render complex, formatted labels using a clean, well-structured JSON schema.
+Rich Styling — Native support for custom font families, sizes, bold, italic, underline, text colors, and background colors per text segment.
+Advanced Layouts — Render standard paragraphs, custom bulleted lists, and auto-numbered sequences.
+Extensible Tap Gestures — Pass custom action types and data payloads through JSON to trigger native actions (phone calls, custom alerts, view navigation, etc.).
+Cross-Platform Alignment — Supports Start, Center, End, and Justified text alignment.
+Safe Formatting &amp; Scaling — Built-in validation prevents crashes from invalid formatting input, with automatic font scaling for tablets.
+
+
+Installation 📦
+Add the NuGet package to your .NET MAUI project:">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/richlabel-maui/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.89ca4972ab5e6aaa05e9a0dae0c4bb64b26585bc79e36f5cf33614eea0283abe.css" integrity="sha256-icpJcqteaqoF6aDa4MS7ZLJlhbx5429c8zYU7qAoOr4=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/richlabel-maui/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="header-nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="JV Blog Dev (Alt + H)">JV Blog Dev</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" class="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu" class="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      RichLabel.Maui: Render Rich Text Dynamically from JSON 🚀
+    </h1>
+    <div class="post-meta">
+
+<span title='2026-07-06 11:47:41 -0600 CST'>July 6, 2026</span>
+
+</div>
+  </header> <details class="toc" >
+    <summary accesskey="c" title="(Alt + C)">
+        <span class="title">Table of Contents</span>
+    </summary>
+
+    <div class="inner"><ul>
+            <li>
+                <a href="#richlabelmaui-" aria-label="RichLabel.Maui 🚀">RichLabel.Maui 🚀</a><ul>
+                    
+            <li>
+                <a href="#preview" aria-label="Preview">Preview</a></li>
+            <li>
+                <a href="#features-" aria-label="Features ✨">Features ✨</a></li>
+            <li>
+                <a href="#installation-" aria-label="Installation 📦">Installation 📦</a></li>
+            <li>
+                <a href="#quick-start-" aria-label="Quick Start 🚀">Quick Start 🚀</a><ul>
+                    
+            <li>
+                <a href="#1-define-your-json-data" aria-label="1. Define your JSON data">1. Define your JSON data</a></li>
+            <li>
+                <a href="#2-deserialize-your-json-data" aria-label="2. Deserialize your JSON data">2. Deserialize your JSON data</a></li>
+            <li>
+                <a href="#3-add-the-control-to-your-xaml" aria-label="3. Add the control to your XAML">3. Add the control to your XAML</a></li></ul>
+            </li>
+            <li>
+                <a href="#handling-actions-" aria-label="Handling Actions 🛠️">Handling Actions 🛠️</a></li>
+            <li>
+                <a href="#contributing-" aria-label="Contributing 🤝">Contributing 🤝</a></li>
+            <li>
+                <a href="#support-the-project-" aria-label="Support the Project ☕">Support the Project ☕</a>
+            </li>
+        </ul>
+        </li>
+        </ul>
+    </div>
+</details>
+
+  <div class="post-content md-content"><h1 id="richlabelmaui-">RichLabel.Maui 🚀<a hidden class="anchor" aria-hidden="true" href="#richlabelmaui-">#</a></h1>
+<p>A powerful, flexible, and lightweight .NET MAUI control for rendering rich text from a simple JSON structure. It provides seamless, extensible support for interactive tap gestures, making it easy to handle links, phone numbers, emails, or trigger custom actions within your app.</p>
+<p><a href="https://www.nuget.org/packages/RichLabel.Maui"><img alt="NuGet version" loading="lazy" src="https://img.shields.io/nuget/v/RichLabel.Maui.svg"></a>
+<a href="https://opensource.org/licenses/MIT"><img alt="License: MIT" loading="lazy" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a></p>
+<hr>
+<h2 id="preview">Preview<a hidden class="anchor" aria-hidden="true" href="#preview">#</a></h2>
+<p><img alt="RichLabel.Maui Preview" loading="lazy" src="https://raw.githubusercontent.com/jvicius/RichLabel.Maui/master/assets/preview.jpeg"></p>
+<hr>
+<h2 id="features-">Features ✨<a hidden class="anchor" aria-hidden="true" href="#features-">#</a></h2>
+<ul>
+<li><strong>JSON-Driven Text</strong> — Render complex, formatted labels using a clean, well-structured JSON schema.</li>
+<li><strong>Rich Styling</strong> — Native support for custom font families, sizes, bold, italic, underline, text colors, and background colors per text segment.</li>
+<li><strong>Advanced Layouts</strong> — Render standard paragraphs, custom bulleted lists, and auto-numbered sequences.</li>
+<li><strong>Extensible Tap Gestures</strong> — Pass custom action types and data payloads through JSON to trigger native actions (phone calls, custom alerts, view navigation, etc.).</li>
+<li><strong>Cross-Platform Alignment</strong> — Supports Start, Center, End, and Justified text alignment.</li>
+<li><strong>Safe Formatting &amp; Scaling</strong> — Built-in validation prevents crashes from invalid formatting input, with automatic font scaling for tablets.</li>
+</ul>
+<hr>
+<h2 id="installation-">Installation 📦<a hidden class="anchor" aria-hidden="true" href="#installation-">#</a></h2>
+<p>Add the NuGet package to your .NET MAUI project:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet add package RichLabel.Maui
+</span></span></code></pre></div><hr>
+<h2 id="quick-start-">Quick Start 🚀<a hidden class="anchor" aria-hidden="true" href="#quick-start-">#</a></h2>
+<h3 id="1-define-your-json-data">1. Define your JSON data<a hidden class="anchor" aria-hidden="true" href="#1-define-your-json-data">#</a></h3>
+<p>Your backend or local storage can provide a JSON structure describing each line and text segment:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;lines&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Normal&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;alignment&#34;</span>: <span style="color:#e6db74">&#34;Center&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;spans&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;fontFamily&#34;</span>: <span style="color:#e6db74">&#34;OpenSansSemibold&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;fontSize&#34;</span>: <span style="color:#ae81ff">20</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;Center title, font OpenSansSemibold, size 20&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Normal&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;spans&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;color&#34;</span>: <span style="color:#e6db74">&#34;#ff2c2c&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;Red colored text&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Normal&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;spans&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;bold&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;This is bold text&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Normal&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;spans&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;underline&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;This is underlined text&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Normal&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;alignment&#34;</span>: <span style="color:#e6db74">&#34;End&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;spans&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;bold&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;End-aligned text&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Normal&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;spans&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;bold&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;Bullet list&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Bullet&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;bulletChar&#34;</span>: <span style="color:#e6db74">&#34;•&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;indentLevel&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;spans&#34;</span>: [
+</span></span><span style="display:flex;"><span>        { <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;Option A&#34;</span> }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Bullet&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;bulletChar&#34;</span>: <span style="color:#e6db74">&#34;•&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;indentLevel&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;spans&#34;</span>: [
+</span></span><span style="display:flex;"><span>        { <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;Option B&#34;</span> }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Normal&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;spans&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;bold&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;Auto-numbered list&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Numbered&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;indentLevel&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;spans&#34;</span>: [
+</span></span><span style="display:flex;"><span>        { <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;Option A&#34;</span> }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Numbered&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;indentLevel&#34;</span>: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;spans&#34;</span>: [
+</span></span><span style="display:flex;"><span>        { <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;Option B&#34;</span> }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Normal&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;spans&#34;</span>: [
+</span></span><span style="display:flex;"><span>        { <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;Tap here -&gt; &#34;</span> },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;fontFamily&#34;</span>: <span style="color:#e6db74">&#34;RegularFont&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;1-888-555-88888&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;bold&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;underline&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;color&#34;</span>: <span style="color:#e6db74">&#34;#FF8100&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;actionType&#34;</span>: <span style="color:#e6db74">&#34;phone&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;actionValue&#34;</span>: <span style="color:#e6db74">&#34;188855588888&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Normal&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;spans&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;fontFamily&#34;</span>: <span style="color:#e6db74">&#34;RegularFont&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;Tap me for a message&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;bold&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;underline&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;color&#34;</span>: <span style="color:#e6db74">&#34;#0000FF&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;actionType&#34;</span>: <span style="color:#e6db74">&#34;text&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;actionValue&#34;</span>: <span style="color:#e6db74">&#34;Thanks for tapping!&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;Normal&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;alignment&#34;</span>: <span style="color:#e6db74">&#34;Justify&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;spans&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;This is justified text. Note: justified alignment is currently supported on Android only. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="2-deserialize-your-json-data">2. Deserialize your JSON data<a hidden class="anchor" aria-hidden="true" href="#2-deserialize-your-json-data">#</a></h3>
+<p>Use your preferred JSON library to deserialize the data into a <code>RichTextDocument</code> object:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>RichTextDocument richDocument = JsonConvert.DeserializeObject&lt;RichTextDocument&gt;(jsonData);
+</span></span></code></pre></div><h3 id="3-add-the-control-to-your-xaml">3. Add the control to your XAML<a hidden class="anchor" aria-hidden="true" href="#3-add-the-control-to-your-xaml">#</a></h3>
+<p>Register the namespace and drop the control into your layout:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;ContentPage</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://schemas.microsoft.com/dotnet/2021/maui&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">xmlns:x=</span><span style="color:#e6db74">&#34;http://schemas.microsoft.com/winfx/2009/xaml&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">x:Class=</span><span style="color:#e6db74">&#34;Sample.RichLabel.Maui.MainPage&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">xmlns:viewModels=</span><span style="color:#e6db74">&#34;clr-namespace:Sample.RichLabel.Maui.ViewModels&#34;</span>
+</span></span><span style="display:flex;"><span>             <span style="color:#a6e22e">xmlns:richLabel=</span><span style="color:#e6db74">&#34;clr-namespace:RichLabel.Maui.Control;assembly=RichLabel.Maui&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;ScrollView&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;Grid</span> <span style="color:#a6e22e">RowDefinitions=</span><span style="color:#e6db74">&#34;*&#34;</span> <span style="color:#a6e22e">ColumnDefinitions=</span><span style="color:#e6db74">&#34;*&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">&lt;!-- Set IsResponsiveFontSize=&#34;True&#34; to enable automatic font scaling on tablets --&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&lt;richLabel:RichLabel</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">Grid.Row=</span><span style="color:#e6db74">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">Document=</span><span style="color:#e6db74">&#34;{Binding RichDocument}&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">Margin=</span><span style="color:#e6db74">&#34;{OnIdiom Phone=10, Tablet=15, Default=15}&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">IsResponsiveFontSize=</span><span style="color:#e6db74">&#34;True&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/Grid&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/ScrollView&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/ContentPage&gt;</span>
+</span></span></code></pre></div><hr>
+<h2 id="handling-actions-">Handling Actions 🛠️<a hidden class="anchor" aria-hidden="true" href="#handling-actions-">#</a></h2>
+<p>For custom app workflows, register a <code>RichActionHandler</code> in your <code>App.xaml.cs</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> RichLabel.Maui.Handlers;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> Sample.RichLabel.Maui
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">partial</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">App</span> : Application
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> App()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            InitializeComponent();
+</span></span><span style="display:flex;"><span>            InitActionTouchHandler();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> InitActionTouchHandler()
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            RichActionHandler.Register(<span style="color:#e6db74">&#34;phone&#34;</span>, <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">value</span> =&gt;
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">await</span> Shell.Current.DisplayAlert(<span style="color:#e6db74">&#34;Phone Data&#34;</span>, <span style="color:#e6db74">$&#34;Parameter value: {value}&#34;</span>, <span style="color:#e6db74">&#34;Close&#34;</span>);
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            RichActionHandler.Register(<span style="color:#e6db74">&#34;text&#34;</span>, <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">value</span> =&gt;
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">await</span> Shell.Current.DisplayAlert(<span style="color:#e6db74">&#34;Text Data&#34;</span>, <span style="color:#e6db74">$&#34;Parameter value: {value}&#34;</span>, <span style="color:#e6db74">&#34;Close&#34;</span>);
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">override</span> Window CreateWindow(IActivationState? activationState)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Window(<span style="color:#66d9ef">new</span> AppShell());
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Each <code>actionType</code> in your JSON (e.g. <code>&quot;phone&quot;</code>, <code>&quot;text&quot;</code>) maps to a handler registered here, letting you define exactly what happens when a user taps that segment.</p>
+<hr>
+<h2 id="contributing-">Contributing 🤝<a hidden class="anchor" aria-hidden="true" href="#contributing-">#</a></h2>
+<p>Contributions, issues, and feature requests are welcome! Feel free to check the <a href="https://github.com/jvicius/RichLabel.Maui/issues">issues page</a> or open a pull request.</p>
+<h2 id="support-the-project-">Support the Project ☕<a hidden class="anchor" aria-hidden="true" href="#support-the-project-">#</a></h2>
+<p>If this component saves you development time or streamlines your dynamic text workflows, feel free to drop a star on the repository! ⭐</p>
+<ul>
+<li><strong>NuGet URL</strong>: <a href="https://www.nuget.org/packages/RichLabel.Maui/1.0.2">RichLabel.Maui Packages</a></li>
+<li><strong>Project Support</strong>: <a href="https://ko-fi.com/jvelarde">Support on Ko-fi</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/.net-maui/">.NET MAUI</a></li>
+      <li><a href="http://localhost:1313/tags/c%23/">C#</a></li>
+      <li><a href="http://localhost:1313/tags/nuget/">NuGet</a></li>
+      <li><a href="http://localhost:1313/tags/open-source/">Open Source</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">JV Blog Dev</a></span> · 
+
+    
+    
+    <span>
+        Powered by
+        <a href="https://gohugo.io/?utm_source=papermod" rel="noopener" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" id="top-link" class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up">
+        <polyline points="17 11 12 6 7 11"></polyline>
+        <polyline points="17 18 12 13 7 18"></polyline>
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var toplink = document.getElementById("top-link");
+    window.onscroll = function () {
+        const scrollThreshold = window.innerHeight;
+        if (document.body.scrollTop > scrollThreshold || document.documentElement.scrollTop > scrollThreshold) {
+            toplink.classList.remove("hidden");
+        } else {
+            toplink.classList.add("hidden");
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
