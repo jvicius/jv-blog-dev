@@ -16,7 +16,7 @@ Is a powerful, lightweight, and high-performance .NET MAUI control designed to a
 
 ## Preview 
 
-![HighlightLabel.Maui Preview](https://github.com/jvicius/HighlightLabel.Maui/blob/master/assets/sample.jpeg)
+![HighlightLabel.Maui Preview](https://raw.githubusercontent.com/jvicius/HighlightLabel.Maui/master/assets/sample.jpeg)
 
 ---
 
@@ -266,5 +266,5 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 If this component saves you development time or streamlines your dynamic text workflows, feel free to drop a star on the repository! ⭐
 
-* **NuGet URL**: [RichLabel.Maui Packages](https://www.nuget.org/packages/HighlightLabel.Maui/1.0.0)
+* **NuGet URL**: [Highlightlabel.Maui Packages](https://www.nuget.org/packages/HighlightLabel.Maui/1.0.0)
 * **Project Support**: [Support on Ko-fi](https://ko-fi.com/jvelarde)
