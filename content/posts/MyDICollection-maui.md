@@ -6,17 +6,13 @@ tags = ['.NET MAUI', 'C#', 'NuGet', 'Open Source', 'Disney Infinity']
 showToc = true
 +++
 
-# 🌌 Disney Infinity Collection Tracker
-
 A modern, fast, and 100% offline-first application built with **.NET MAUI** to easily manage and track your Disney Infinity collection. 
 
 Whether you're hunting for figures at a retro game store or organizing your display at home, this app lets you know exactly what you own, what you're missing, and how many duplicates you have.
 
 ## Preview 
 
-<div align="center">
-  <video src="https://github.com/user-attachments/assets/b3223098-1968-4b27-b802-7b2fae9c30d4" width="300" controls="controls"></video>
-</div>
+[![Ver Video](https://img.shields.io/badge/Ver_Video-Reproducir-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://github.com/user-attachments/assets/b3223098-1968-4b27-b802-7b2fae9c30d4)
 
 ## ✨ Features
 
@@ -32,6 +28,10 @@ Whether you're hunting for figures at a retro game store or organizing your disp
 - [ ] **NFC Scanning:** Tap your physical figures or Power Discs to the back of your phone to automatically log them into your collection.
 - [ ] **In-App Figure Details:** View character stats, skill trees, and compatibility directly inside the app without needing to open the web browser.
 
+## GitHub Repo
+
+[![GitHub](https://img.shields.io/badge/GitHub-Mi_Repo-181717?style=for-the-badge&logo=github)](https://github.com/jvicius/MyDICollection)
+
 ## 📥 Installation
 
 Go to the [Releases](https://github.com/jvicius/MyDICollection/releases) tab to download the latest version for your device:
@@ -41,7 +41,5 @@ Go to the [Releases](https://github.com/jvicius/MyDICollection/releases) tab to 
 ## ☕ Support the Project
 
 If you find this app useful and want to help me keep building cool features (like the NFC integration!), consider buying me a coffee:
-
-[Github Repo](https://github.com/jvicius/MyDICollection)
 
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/josevelarde)
